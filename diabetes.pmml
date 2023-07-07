@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PMML version="4.2" xmlns="http://www.dmg.org/PMML-4_2">
+  <Header copyright="Marco Yandún">
+    <Application name="KNIME" version="4.6.0"/>
+  </Header>
+  <DataDictionary numberOfFields="17">
+    <DataField name="Age" optype="continuous" dataType="integer">
+      <Interval closure="closedClosed" leftMargin="16.0" rightMargin="90.0"/>
+    </DataField>
+    <DataField name="Gender" optype="categorical" dataType="string">
+      <Value value="Male"/>
+      <Value value="Female"/>
+    </DataField>
+    <DataField name="Polyuria" optype="categorical" dataType="string">
+      <Value value="No"/>
+      <Value value="Yes"/>
+    </DataField>
+    <DataField name="Polydipsia" optype="categorical" dataType="string">
+      <Value value="Yes"/>
+      <Value value="No"/>
+    </DataField>
+    <DataField name="sudden weight loss" optype="categorical" dataType="string">
+      <Value value="No"/>
+      <Value value="Yes"/>
+    </DataField>
+    <DataField name="weakness" optype="categorical" dataType="string">
+      <Value value="Yes"/>
+      <Value value="No"/>
+    </DataField>
+    <DataField name="Polyphagia" optype="categorical" dataType="string">
+      <Value value="No"/>
+      <Value value="Yes"/>
+    </DataField>
+    <DataField name="Genital thrush" optype="categorical" dataType="string">
+      <Value value="No"/>
+      <Value value="Yes"/>
+    </DataField>
+    <DataField name="visual blurring" optype="categorical" dataType="string">
+      <Value value="No"/>
+      <Value value="Yes"/>
+    </DataField>
+    <DataField name="Itching" optype="categorical" dataType="string">
+      <Value value="Yes"/>
+      <Value value="No"/>
+    </DataField>
+    <DataField name="Irritability" optype="categorical" dataType="string">
+      <Value value="No"/>
+      <Value value="Yes"/>
+    </DataField>
+    <DataField name="delayed healing" optype="categorical" dataType="string">
+      <Value value="Yes"/>
+      <Value value="No"/>
+    </DataField>
+    <DataField name="partial paresis" optype="categorical" dataType="string">
+      <Value value="No"/>
+      <Value value="Yes"/>
+    </DataField>
+    <DataField name="muscle stiffness" optype="categorical" dataType="string">
+      <Value value="Yes"/>
+      <Value value="No"/>
+    </DataField>
+    <DataField name="Alopecia" optype="categorical" dataType="string">
+      <Value value="Yes"/>
+      <Value value="No"/>
+    </DataField>
+    <DataField name="Obesity" optype="categorical" dataType="string">
+      <Value value="Yes"/>
+      <Value value="No"/>
+    </DataField>
+    <DataField name="class" optype="categorical" dataType="string">
+      <Value value="Positive"/>
+      <Value value="Negative"/>
+    </DataField>
+  </DataDictionary>
+  <TreeModel modelName="DecisionTree" functionName="classification" splitCharacteristic="binarySplit" missingValueStrategy="lastPrediction" noTrueChildStrategy="returnNullPrediction">
+    <MiningSchema>
+      <MiningField name="Age" invalidValueTreatment="asIs"/>
+      <MiningField name="Gender" invalidValueTreatment="asIs"/>
+      <MiningField name="Polyuria" invalidValueTreatment="asIs"/>
+      <MiningField name="Polydipsia" invalidValueTreatment="asIs"/>
+      <MiningField name="sudden weight loss" invalidValueTreatment="asIs"/>
+      <MiningField name="weakness" invalidValueTreatment="asIs"/>
+      <MiningField name="Polyphagia" invalidValueTreatment="asIs"/>
+      <MiningField name="Genital thrush" invalidValueTreatment="asIs"/>
+      <MiningField name="visual blurring" invalidValueTreatment="asIs"/>
+      <MiningField name="Itching" invalidValueTreatment="asIs"/>
+      <MiningField name="Irritability" invalidValueTreatment="asIs"/>
+      <MiningField name="delayed healing" invalidValueTreatment="asIs"/>
+      <MiningField name="partial paresis" invalidValueTreatment="asIs"/>
+      <MiningField name="muscle stiffness" invalidValueTreatment="asIs"/>
+      <MiningField name="Alopecia" invalidValueTreatment="asIs"/>
+      <MiningField name="Obesity" invalidValueTreatment="asIs"/>
+      <MiningField name="class" invalidValueTreatment="asIs" usageType="target"/>
+    </MiningSchema>
+    <Node id="0" score="Positive" recordCount="520.0">
+      <True/>
+      <ScoreDistribution value="Positive" recordCount="320.0"/>
+      <ScoreDistribution value="Negative" recordCount="200.0"/>
+      <Node id="1" score="Negative" recordCount="262.0">
+        <SimplePredicate field="Polyuria" operator="equal" value="No"/>
+        <ScoreDistribution value="Positive" recordCount="77.0"/>
+        <ScoreDistribution value="Negative" recordCount="185.0"/>
+        <Node id="2" score="Negative" recordCount="199.0">
+          <SimplePredicate field="Gender" operator="equal" value="Male"/>
+          <ScoreDistribution value="Positive" recordCount="33.0"/>
+          <ScoreDistribution value="Negative" recordCount="166.0"/>
+          <Node id="3" score="Positive" recordCount="28.0">
+            <SimplePredicate field="Polydipsia" operator="equal" value="Yes"/>
+            <ScoreDistribution value="Positive" recordCount="20.0"/>
+            <ScoreDistribution value="Negative" recordCount="8.0"/>
+            <Node id="4" score="Negative" recordCount="12.0">
+              <SimplePredicate field="muscle stiffness" operator="equal" value="Yes"/>
+              <ScoreDistribution value="Positive" recordCount="5.0"/>
+              <ScoreDistribution value="Negative" recordCount="7.0"/>
+              <Node id="5" score="Positive" recordCount="6.0">
+                <SimplePredicate field="delayed healing" operator="equal" value="Yes"/>
+                <ScoreDistribution value="Positive" recordCount="5.0"/>
+                <ScoreDistribution value="Negative" recordCount="1.0"/>
+              </Node>
+              <Node id="8" score="Negative" recordCount="6.0">
+                <SimplePredicate field="delayed healing" operator="equal" value="No"/>
+                <ScoreDistribution value="Positive" recordCount="0.0"/>
+                <ScoreDistribution value="Negative" recordCount="6.0"/>
+              </Node>
+            </Node>
+            <Node id="9" score="Positive" recordCount="16.0">
+              <SimplePredicate field="muscle stiffness" operator="equal" value="No"/>
+              <ScoreDistribution value="Positive" recordCount="15.0"/>
+              <ScoreDistribution value="Negative" recordCount="1.0"/>
+            </Node>
+          </Node>
+          <Node id="14" score="Negative" recordCount="171.0">
+            <SimplePredicate field="Polydipsia" operator="equal" value="No"/>
+            <ScoreDistribution value="Positive" recordCount="13.0"/>
+            <ScoreDistribution value="Negative" recordCount="158.0"/>
+            <Node id="15" score="Negative" recordCount="153.0">
+              <SimplePredicate field="Irritability" operator="equal" value="No"/>
+              <ScoreDistribution value="Positive" recordCount="6.0"/>
+              <ScoreDistribution value="Negative" recordCount="147.0"/>
+              <Node id="16" score="Negative" recordCount="64.0">
+                <SimplePredicate field="weakness" operator="equal" value="Yes"/>
+                <ScoreDistribution value="Positive" recordCount="5.0"/>
+                <ScoreDistribution value="Negative" recordCount="59.0"/>
+                <Node id="17" score="Negative" recordCount="9.0">
+                  <SimplePredicate field="Age" operator="lessOrEqual" value="38.0"/>
+                  <ScoreDistribution value="Positive" recordCount="3.0"/>
+                  <ScoreDistribution value="Negative" recordCount="6.0"/>
+                  <Node id="18" score="Positive" recordCount="3.0">
+                    <SimplePredicate field="Alopecia" operator="equal" value="Yes"/>
+                    <ScoreDistribution value="Positive" recordCount="3.0"/>
+                    <ScoreDistribution value="Negative" recordCount="0.0"/>
+                  </Node>
+                  <Node id="19" score="Negative" recordCount="6.0">
+                    <SimplePredicate field="Alopecia" operator="equal" value="No"/>
+                    <ScoreDistribution value="Positive" recordCount="0.0"/>
+                    <ScoreDistribution value="Negative" recordCount="6.0"/>
+                  </Node>
+                </Node>
+                <Node id="20" score="Negative" recordCount="55.0">
+                  <SimplePredicate field="Age" operator="greaterThan" value="38.0"/>
+                  <ScoreDistribution value="Positive" recordCount="2.0"/>
+                  <ScoreDistribution value="Negative" recordCount="53.0"/>
+                </Node>
+              </Node>
+              <Node id="27" score="Negative" recordCount="89.0">
+                <SimplePredicate field="weakness" operator="equal" value="No"/>
+                <ScoreDistribution value="Positive" recordCount="1.0"/>
+                <ScoreDistribution value="Negative" recordCount="88.0"/>
+              </Node>
+            </Node>
+            <Node id="30" score="Negative" recordCount="18.0">
+              <SimplePredicate field="Irritability" operator="equal" value="Yes"/>
+              <ScoreDistribution value="Positive" recordCount="7.0"/>
+              <ScoreDistribution value="Negative" recordCount="11.0"/>
+              <Node id="31" score="Negative" recordCount="13.0">
+                <SimplePredicate field="Genital thrush" operator="equal" value="No"/>
+                <ScoreDistribution value="Positive" recordCount="2.0"/>
+                <ScoreDistribution value="Negative" recordCount="11.0"/>
+                <Node id="32" score="Positive" recordCount="3.0">
+                  <SimplePredicate field="Age" operator="lessOrEqual" value="42.5"/>
+                  <ScoreDistribution value="Positive" recordCount="2.0"/>
+                  <ScoreDistribution value="Negative" recordCount="1.0"/>
+                </Node>
+                <Node id="33" score="Negative" recordCount="10.0">
+                  <SimplePredicate field="Age" operator="greaterThan" value="42.5"/>
+                  <ScoreDistribution value="Positive" recordCount="0.0"/>
+                  <ScoreDistribution value="Negative" recordCount="10.0"/>
+                </Node>
+              </Node>
+              <Node id="34" score="Positive" recordCount="5.0">
+                <SimplePredicate field="Genital thrush" operator="equal" value="Yes"/>
+                <ScoreDistribution value="Positive" recordCount="5.0"/>
+                <ScoreDistribution value="Negative" recordCount="0.0"/>
+              </Node>
+            </Node>
+          </Node>
+        </Node>
+        <Node id="35" score="Positive" recordCount="63.0">
+          <SimplePredicate field="Gender" operator="equal" value="Female"/>
+          <ScoreDistribution value="Positive" recordCount="44.0"/>
+          <ScoreDistribution value="Negative" recordCount="19.0"/>
+          <Node id="36" score="Negative" recordCount="16.0">
+            <SimplePredicate field="Alopecia" operator="equal" value="Yes"/>
+            <ScoreDistribution value="Positive" recordCount="3.0"/>
+            <ScoreDistribution value="Negative" recordCount="13.0"/>
+            <Node id="37" score="Negative" recordCount="13.0">
+              <SimplePredicate field="delayed healing" operator="equal" value="Yes"/>
+              <ScoreDistribution value="Positive" recordCount="0.0"/>
+              <ScoreDistribution value="Negative" recordCount="13.0"/>
+            </Node>
+            <Node id="38" score="Positive" recordCount="3.0">
+              <SimplePredicate field="delayed healing" operator="equal" value="No"/>
+              <ScoreDistribution value="Positive" recordCount="3.0"/>
+              <ScoreDistribution value="Negative" recordCount="0.0"/>
+            </Node>
+          </Node>
+          <Node id="39" score="Positive" recordCount="47.0">
+            <SimplePredicate field="Alopecia" operator="equal" value="No"/>
+            <ScoreDistribution value="Positive" recordCount="41.0"/>
+            <ScoreDistribution value="Negative" recordCount="6.0"/>
+            <Node id="40" score="Positive" recordCount="10.0">
+              <SimplePredicate field="Age" operator="lessOrEqual" value="34.5"/>
+              <ScoreDistribution value="Positive" recordCount="5.0"/>
+              <ScoreDistribution value="Negative" recordCount="5.0"/>
+              <Node id="41" score="Positive" recordCount="5.0">
+                <SimplePredicate field="muscle stiffness" operator="equal" value="Yes"/>
+                <ScoreDistribution value="Positive" recordCount="5.0"/>
+                <ScoreDistribution value="Negative" recordCount="0.0"/>
+              </Node>
+              <Node id="42" score="Negative" recordCount="5.0">
+                <SimplePredicate field="muscle stiffness" operator="equal" value="No"/>
+                <ScoreDistribution value="Positive" recordCount="0.0"/>
+                <ScoreDistribution value="Negative" recordCount="5.0"/>
+              </Node>
+            </Node>
+            <Node id="43" score="Positive" recordCount="37.0">
+              <SimplePredicate field="Age" operator="greaterThan" value="34.5"/>
+              <ScoreDistribution value="Positive" recordCount="36.0"/>
+              <ScoreDistribution value="Negative" recordCount="1.0"/>
+            </Node>
+          </Node>
+        </Node>
+      </Node>
+      <Node id="48" score="Positive" recordCount="258.0">
+        <SimplePredicate field="Polyuria" operator="equal" value="Yes"/>
+        <ScoreDistribution value="Positive" recordCount="243.0"/>
+        <ScoreDistribution value="Negative" recordCount="15.0"/>
+        <Node id="49" score="Positive" recordCount="245.0">
+          <SimplePredicate field="Age" operator="lessOrEqual" value="69.5"/>
+          <ScoreDistribution value="Positive" recordCount="237.0"/>
+          <ScoreDistribution value="Negative" recordCount="8.0"/>
+          <Node id="50" score="Positive" recordCount="191.0">
+            <SimplePredicate field="Polydipsia" operator="equal" value="Yes"/>
+            <ScoreDistribution value="Positive" recordCount="191.0"/>
+            <ScoreDistribution value="Negative" recordCount="0.0"/>
+          </Node>
+          <Node id="51" score="Positive" recordCount="54.0">
+            <SimplePredicate field="Polydipsia" operator="equal" value="No"/>
+            <ScoreDistribution value="Positive" recordCount="46.0"/>
+            <ScoreDistribution value="Negative" recordCount="8.0"/>
+            <Node id="52" score="Positive" recordCount="16.0">
+              <SimplePredicate field="Obesity" operator="equal" value="Yes"/>
+              <ScoreDistribution value="Positive" recordCount="8.0"/>
+              <ScoreDistribution value="Negative" recordCount="8.0"/>
+              <Node id="53" score="Negative" recordCount="9.0">
+                <SimplePredicate field="delayed healing" operator="equal" value="Yes"/>
+                <ScoreDistribution value="Positive" recordCount="1.0"/>
+                <ScoreDistribution value="Negative" recordCount="8.0"/>
+              </Node>
+              <Node id="58" score="Positive" recordCount="7.0">
+                <SimplePredicate field="delayed healing" operator="equal" value="No"/>
+                <ScoreDistribution value="Positive" recordCount="7.0"/>
+                <ScoreDistribution value="Negative" recordCount="0.0"/>
+              </Node>
+            </Node>
+            <Node id="59" score="Positive" recordCount="38.0">
+              <SimplePredicate field="Obesity" operator="equal" value="No"/>
+              <ScoreDistribution value="Positive" recordCount="38.0"/>
+              <ScoreDistribution value="Negative" recordCount="0.0"/>
+            </Node>
+          </Node>
+        </Node>
+        <Node id="60" score="Negative" recordCount="13.0">
+          <SimplePredicate field="Age" operator="greaterThan" value="69.5"/>
+          <ScoreDistribution value="Positive" recordCount="6.0"/>
+          <ScoreDistribution value="Negative" recordCount="7.0"/>
+          <Node id="61" score="Positive" recordCount="6.0">
+            <SimplePredicate field="weakness" operator="equal" value="Yes"/>
+            <ScoreDistribution value="Positive" recordCount="6.0"/>
+            <ScoreDistribution value="Negative" recordCount="0.0"/>
+          </Node>
+          <Node id="62" score="Negative" recordCount="7.0">
+            <SimplePredicate field="weakness" operator="equal" value="No"/>
+            <ScoreDistribution value="Positive" recordCount="0.0"/>
+            <ScoreDistribution value="Negative" recordCount="7.0"/>
+          </Node>
+        </Node>
+      </Node>
+    </Node>
+  </TreeModel>
+</PMML>
